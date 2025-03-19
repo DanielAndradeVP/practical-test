@@ -1,2 +1,0 @@
-# practical-test
-Practical Test
