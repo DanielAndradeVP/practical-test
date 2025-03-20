@@ -9,7 +9,7 @@ gh repo clone DanielAndradeVP/practical-test
 
 Entre no diretório
 ```sh
-cd gerenciador-de-tarefas
+cd practical-test/gerenciador-de-tarefas 
 ```
 
 Crie o Arquivo .env
@@ -20,4 +20,10 @@ cp .env.example .env
 Instalar as dependências do projeto
 ```sh
 composer install
+```
+
+Gerar a key do projeto Laravel
+
+```sh
+php artisan key:generate
 ```
