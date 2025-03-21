@@ -14,7 +14,7 @@ class UserService
 
     public function create(array $data)
     {
-        $this->repository->create($data);
+        return $this->repository->create($data);
     }
 
     public function show($id)
@@ -37,7 +37,9 @@ class UserService
     {
         $user = $this->validateUser($id);
 
-        return $this->repository->update($user, $data);
+        $this->repository->update($user, $data);
+
+        return $user;
     }
 
     public function delete($id)

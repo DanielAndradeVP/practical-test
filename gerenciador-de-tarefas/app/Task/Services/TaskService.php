@@ -15,7 +15,8 @@ class TaskService
     public function create(array $data)
     {
         $userLogged = auth()->user();
-        $this->repository->create($data, $userLogged);
+
+        return $this->repository->create($data, $userLogged);
     }
 
     public function listAllTasks(): LengthAwarePaginator
@@ -27,19 +28,21 @@ class TaskService
 
     public function update($id, $data)
     {
-        $entity = $this->validateUser($id);
+        $entity = $this->validateTaskByUser($id);
 
-        return $this->repository->update($entity, $data);
+        $this->repository->update($entity, $data);
+
+        return $entity;
     }
 
     public function delete($id)
     {
-        $this->validateUser($id);
+        $this->validateTaskByUser($id);
 
         return $this->repository->delete($id);
     }
 
-    public function validateUser($id)
+    public function validateTaskByUser($id)
     {
         $entity = $this->repository->find($id);
 
@@ -49,9 +52,9 @@ class TaskService
 
         $userLogged = auth()->user();
 
-        $userId = $userLogged->tasks->pluck('user_id');
+        $userId = $userLogged->getAttribute('id');
 
-        if ($userId[0] != $entity->user->id) {
+        if ($userId != $entity->user->id) {
             throw new \Exception('Objeto não encontrado na base de dados');
         }
 
@@ -60,7 +63,7 @@ class TaskService
 
     public function taskCompleted($id)
     {
-        $entity = $this->validateUser($id);
+        $entity = $this->validateTaskByUser($id);
 
         return $this->repository->taskCompleted($entity);
     }

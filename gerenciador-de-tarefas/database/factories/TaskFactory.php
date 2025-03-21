@@ -13,7 +13,7 @@ class TaskFactory extends Factory
             'title' => fake()->title(),
             'user_id' => User::factory()->create()->id,
             'completed' => fake()->boolean(),
-            'description' => fake()->text(),
+            'description' => fake()->sentence(),
         ];
     }
 }

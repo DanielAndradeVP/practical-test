@@ -34,7 +34,7 @@ class TaskFeatureTest extends TestCase
         $data = [
             'title' => fake()->title(),
             'completed' => fake()->boolean(),
-            'description' => fake()->text(),
+            'description' => fake()->sentence(),
         ];
 
         $this->postJson('api/task', $data, [

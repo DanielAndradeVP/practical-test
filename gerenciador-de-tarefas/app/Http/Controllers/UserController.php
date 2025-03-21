@@ -37,9 +37,9 @@ class UserController extends Controller
     {
         $request = $request->validated();
 
-        $this->service->update($id, $request);
+        $user = $this->service->update($id, $request);
 
-        return $this->ok($request);
+        return $this->ok($user);
     }
 
     public function delete($id): JsonResponse

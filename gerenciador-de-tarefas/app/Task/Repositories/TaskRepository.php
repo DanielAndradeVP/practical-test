@@ -16,7 +16,7 @@ class TaskRepository
     {
         $dataMerge = array_merge($data, ['user_id' => $userLogged->id]);
 
-        $this->model->create($dataMerge);
+        return $this->model->create($dataMerge);
     }
 
     public function find($id)
