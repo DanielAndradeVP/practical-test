@@ -11,7 +11,7 @@ class TaskFactory extends Factory
     {
         return [
             'title' => fake()->title(),
-            'user_id' => User::factory()->create()->id,
+            'user_id' => User::exists() ?: User::factory()->create()->id,
             'completed' => fake()->boolean(),
             'description' => fake()->sentence(),
         ];

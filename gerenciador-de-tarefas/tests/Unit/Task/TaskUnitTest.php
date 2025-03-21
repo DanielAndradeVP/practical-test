@@ -100,7 +100,11 @@ class TaskUnitTest extends TestCase
 
     public function test_method_validate_task_throw_exception_when_user_logged_is_not_owner(): void
     {
-        $taskTwo = Task::factory()->create();
+        $userTwo = User::factory()->create();
+
+        $taskTwo = Task::factory()->create([
+            'user_id' => $userTwo->id,
+        ]);
 
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Objeto não encontrado na base de dados');
