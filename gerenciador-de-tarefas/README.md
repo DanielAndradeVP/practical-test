@@ -10,7 +10,7 @@ O **Gerenciador de tarefas** é uma API REST projetada para facilitar a organiza
 - **Autenticação**: Autenticação por login e senha.
 - **CRUD de usuários**: Criação, exibição, atualização e deleção
 - **Paginação**: Listagens de todos os usuário ou todas as tasks do usuário logado com paginação de 20 itens por página
-- **Gerenciamento de Tarefas**: Criação, edição e remoção de tarefa e funcionalidade de marcar tarefa como concluida.
+- **Gerenciamento de Tarefas**: Criação, edição, remoção de tarefa e funcionalidade de marcar tarefa como concluida.
 
 - **Controle de Acesso a tarefas**: O usuário está relacionado as suas tarefas, não tendo acesso as tarefas de outro usuário.
 
@@ -46,7 +46,7 @@ O **Gerenciador de tarefas** é uma API REST projetada para facilitar a organiza
 5. Gere a chave da aplicação:
 
     ```sh
-    php artisan key:generate
+    php artisan jwt:secret
     ```
 
 6. Configure o banco de dados no arquivo `.env`.
